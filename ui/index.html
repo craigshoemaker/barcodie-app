@@ -29,7 +29,6 @@
         const $description = document.getElementById('description');
         const $cancel = document.getElementById('cancel');
         const $save = document.getElementById('save');
-        const $message = document.getElementById('message');
 
         const apiBase = 'api/';
 
@@ -64,7 +63,6 @@
         function clear() {
             $id.value = '';
             $description.value = '';
-            $message.innerText = '';
         }
 
         $cancel.addEventListener('click', () => {
