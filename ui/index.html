@@ -17,7 +17,7 @@
             <textarea name="description" class="input" id="description" style="height:300px" cols="30" rows="10"></textarea>
         </diV>
         <div class="mt-4">
-            <button class="button" id="cancel">Cancel</button>
+            <button class="button" id="clear">Clear</button>
             <button class="button has-background-link has-text-white" id="save">Save</button>
         </div>
     </main>
@@ -27,7 +27,7 @@
 
         const $id = document.getElementById('id');
         const $description = document.getElementById('description');
-        const $cancel = document.getElementById('cancel');
+        const $clear = document.getElementById('clear');
         const $save = document.getElementById('save');
 
         const apiBase = 'api/';
@@ -69,7 +69,7 @@
             $description.value = '';
         }
 
-        $cancel.addEventListener('click', () => {
+        $clear.addEventListener('click', () => {
             clear();
         });
 
