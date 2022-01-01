@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcodie</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+<body class="container content m-3">
+    <main>
+        <h1>Barcodie</h1>
+        <div>
+            <input type="text" class="input" id="id" name="id">
+        </div>
+        <diV>
+            <textarea name="description" class="input" id="description" style="height:300px" cols="30" rows="10"></textarea>
+        </diV>
+        <div class="mt-4">
+            <button class="button" id="cancel">Cancel</button>
+            <button class="button is-primary" id="save">Save</button>
+        </div>
+    </main>
+</body>
+<script>
+    window.addEventListener('DOMContentLoaded', async () => {
+
+        const $id = document.getElementById('id');
+        const $description = document.getElementById('description');
+        const $cancel = document.getElementById('cancel');
+        const $save = document.getElementById('save');
+        //const apiBase = 'https://wonderful-pebble-0797c0e10.azurestaticapps.net/api/';
+        const apiBase = 'api/';
+
+        $id.addEventListener('blur', async () => {
+            const id = $id.value;
+            const response = await fetch(`${apiBase}read?id=${id}`);
+            const data = await response.json();
+            $description.value = data.description;
+        });
+
+        $save.addEventListener('click', async () => {
+            const input = {
+                id: $id.value,
+                description: $description.value
+            };
+
+            const response = await fetch(`${apiBase}write`, {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(input)
+            });
+        });
+
+        function clear() {
+            $id.value = '';
+            $description.value = '';
+        }
+
+        $cancel.addEventListener('click', () => {
+            clear();
+        });
+
+    });
+</script>
+</html>
