@@ -18,7 +18,7 @@
         </diV>
         <div class="mt-4">
             <button class="button" id="cancel">Cancel</button>
-            <button class="button is-primary" id="save">Save</button>
+            <button class="button has-background-link has-text-white" id="save">Save</button>
         </div>
     </main>
 </body>
@@ -29,6 +29,8 @@
         const $description = document.getElementById('description');
         const $cancel = document.getElementById('cancel');
         const $save = document.getElementById('save');
+        const $message = document.getElementById('message');
+
         const apiBase = 'api/';
 
         $id.addEventListener('blur', async () => {
@@ -39,10 +41,13 @@
         });
 
         $save.addEventListener('click', async () => {
+
             const input = {
                 id: $id.value,
                 description: $description.value
             };
+
+            $save.innerText = 'Saving...';
 
             const response = await fetch(`${apiBase}write`, {
                 method: 'post',
@@ -51,11 +56,14 @@
                 },
                 body: JSON.stringify(input)
             });
+
+            $save.innerText = 'Save';
         });
 
         function clear() {
             $id.value = '';
             $description.value = '';
+            $message.innerText = '';
         }
 
         $cancel.addEventListener('click', () => {
