@@ -37,7 +37,11 @@
             $description.value = 'loading...';
             const response = await fetch(`${apiBase}read?id=${id}`);
             const data = await response.json();
-            $description.value = data.description;
+            if(data.description) {
+                $description.value = data.description;
+            } else {
+                $description.value = '';
+            }
         });
 
         $save.addEventListener('click', async () => {
