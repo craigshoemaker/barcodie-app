@@ -5,7 +5,7 @@ if (!process.env.PRODUCTION) {
 const config = require("./config");
 
 const dataService = storage.createTableService(
-    config.STORAGE_CONNECTION_STRING
+    config.CONNECTION_STRING
 );
 const entityGenerator = storage.TableUtilities.entityGenerator;
 

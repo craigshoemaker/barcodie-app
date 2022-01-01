@@ -1,4 +1,4 @@
 module.exports = {
-    STORAGE_CONNECTION_STRING: process.env.STORAGE_CONNECTION_STRING,
+    CONNECTION_STRING: process.env.CONNECTION_STRING,
     PARTITION_KEY: "inventory"
 };

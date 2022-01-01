@@ -1,0 +1,11 @@
+{
+  "name": "barcodie-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "open": "swa start ui --api-location api"
+  },
+  "author": "",
+  "license": "MIT"
+}
