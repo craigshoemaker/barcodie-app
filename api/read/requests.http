@@ -1,0 +1,6 @@
+
+
+
+GET http://localhost:7071/api/read?id=2002 HTTP/1.1
+
+## 
