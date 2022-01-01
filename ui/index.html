@@ -35,6 +35,7 @@
 
         $id.addEventListener('blur', async () => {
             const id = $id.value;
+            $description.value = 'loading...';
             const response = await fetch(`${apiBase}read?id=${id}`);
             const data = await response.json();
             $description.value = data.description;
